@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Simon\\OneDrive\\Bureau\\TuCarbureAPI\\TuCarbureAPI\\TuCarbureAPI.csproj": {}
+    "C:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Simon\\OneDrive\\Bureau\\TuCarbureAPI\\TuCarbureAPI\\TuCarbureAPI.csproj": {
+    "C:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Simon\\OneDrive\\Bureau\\TuCarbureAPI\\TuCarbureAPI\\TuCarbureAPI.csproj",
+        "projectUniqueName": "C:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj",
         "projectName": "TuCarbureAPI",
-        "projectPath": "C:\\Users\\Simon\\OneDrive\\Bureau\\TuCarbureAPI\\TuCarbureAPI\\TuCarbureAPI.csproj",
-        "packagesPath": "C:\\Users\\Simon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Simon\\OneDrive\\Bureau\\TuCarbureAPI\\TuCarbureAPI\\obj\\",
+        "projectPath": "C:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj",
+        "packagesPath": "C:\\Users\\thiba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Simon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thiba\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
