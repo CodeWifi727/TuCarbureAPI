@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore.Relational": "7.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
           "MySql.Data": "8.0.33",
+          "MySql.EntityFrameworkCore": "7.0.2",
           "MySqlConnector": "2.2.6",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
@@ -443,6 +444,19 @@
             "rid": "win-x64",
             "assetType": "native",
             "fileVersion": "4.1.0.0"
+          }
+        }
+      },
+      "MySql.EntityFrameworkCore/7.0.2": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.8",
+          "MySql.Data": "8.0.33"
+        },
+        "runtime": {
+          "lib/net7.0/MySql.EntityFrameworkCore.dll": {
+            "assemblyVersion": "7.0.2.0",
+            "fileVersion": "7.0.2.0"
           }
         }
       },
@@ -1020,6 +1034,13 @@
       "sha512": "sha512-mW+A9tc0s+3E3+XYe80aJmr/AvZoKBZG44w13AdVf4+1iRDwgdL6eLMPZgHyQFGwdLwNvQNPKegcOE4rRDuv8Q==",
       "path": "mysql.data/8.0.33",
       "hashPath": "mysql.data.8.0.33.nupkg.sha512"
+    },
+    "MySql.EntityFrameworkCore/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ySIsMm7VqZTc685eGT9FAMkS73qbRwx80L/3/cAsnfTOqRNQc+pBj8OO9k275wBfcE2DRJTgPC5LJcPF/58KMw==",
+      "path": "mysql.entityframeworkcore/7.0.2",
+      "hashPath": "mysql.entityframeworkcore.7.0.2.nupkg.sha512"
     },
     "MySqlConnector/2.2.6": {
       "type": "package",

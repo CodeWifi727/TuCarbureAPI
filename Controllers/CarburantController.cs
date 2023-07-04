@@ -3,35 +3,36 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TuCarbureAPI.EntityLayer;
+using TuCarbureAPI.Interfaces;
 
 namespace TuCarbureAPI.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
+    [ApiController]
     public class CarburantController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<CarburantController> _logger;
 
-        public CarburantController(ILogger<CarburantController> logger)
+        private IRepository<Carburant> _repo;
+
+        public CarburantController(ILogger<CarburantController> logger, IRepository<Carburant> repo)
         {
             _logger = logger;
+            _repo = repo;
         }
 
-        [HttpGet("GetCarburant", Name = "GetCarburant")]
-        public IEnumerable<Carburant> GetCarburant()
+        [HttpGet(Name = "GetCarburant")]
+
+        public List<Carburant> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new Carburant
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            List<Carburant> list;
+
+            list = _repo.Get();
+
+            return list;
+
+            //return StatusCode(StatusCodes.Status200OK, list);
         }
     }
 }
