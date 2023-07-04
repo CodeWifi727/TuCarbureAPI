@@ -1,11 +1,18 @@
 using Microsoft.EntityFrameworkCore;
-using MySqlConnector;
+using TuCarbureAPI.EntityLayer;
+using TuCarbureAPI.Interfaces;
+using TuCarbureAPI.RepositoryLayer;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Dependency Injection
+
+builder.Services.AddScoped<IRepository<Carburant>, CarburantRepository>();
+
 // Configuration DB
 
-builder.Services.AddTransient<MySqlConnection>(_ => new MySqlConnection(builder.Configuration.GetConnectionString("Default")));
+//builder.Services.AddScoped<MySqlConnection>(_ => new MySqlConnection(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddDbContext<MySqlConnectionContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
 
 // Add services to the container.
 
