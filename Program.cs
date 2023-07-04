@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Dependency Injection
 
+builder.Services.AddScoped<IRepository<Releve>, ReleveRepository>();
 builder.Services.AddScoped<IRepository<Carburant>, CarburantRepository>();
 builder.Services.AddScoped<IRepository<Station>, StationRepository>();
 
