@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TuCarbureAPI.EntityLayer;
 
-[Table("stations-services", Schema = "tucarbure")]
+[Table("stations_services", Schema = "tucarbure")]
 public class Station
 {
     [Required]
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Column("id-stations-Service")]
+    [Column("id_stations_Service")]
     public int idStationsService { get; set; }
     public string? marque { get; set; }
     public string? adressePostale { get; set; }

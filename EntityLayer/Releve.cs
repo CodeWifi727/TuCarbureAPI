@@ -10,13 +10,13 @@ public class Releve
     [Required]
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Column("id-releve")]
+    [Column("id_releve")]
     public int idReleve { get; set; }
 
-    [Column("date-heure")]
+    [Column("date_heure")]
     public DateTime DateHeure { get; set; }
 
-    [Column("prix-carburant")]
+    [Column("prix_carburant")]
     public int PrixCarburant { get; set; }
 
 }
