@@ -8,4 +8,5 @@ public class MySqlConnectionContext : DbContext
     }
 
     public DbSet<Carburant> Carburants { get; set; }
+    public DbSet<Station> Stations { get; set; }
 }

@@ -1,33 +1,38 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using static System.Collections.Specialized.BitVector32;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using TuCarbureAPI.EntityLayer;
+using TuCarbureAPI.Interfaces;
 
-namespace TuCarbureAPI.Controllers;
-
-[ApiController]
-[Route("[controller]")]
-public class StationController : ControllerBase
+namespace TuCarbureAPI.Controllers
 {
-    private static readonly string[] Summaries = new[]
+    [Route("[controller]")]
+    [ApiController]
+    public class StationController : ControllerBase
     {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        private readonly ILogger<StationController> _logger;
 
-    private readonly ILogger<StationController> _logger;
+        private IRepository<Station> _repo;
 
-    public StationController(ILogger<StationController> logger)
-    {
-        _logger = logger;
-    }
-
-    [HttpGet(Name = "GetStation")]
-    public IEnumerable<Station> Get()
-    {
-        return Enumerable.Range(1, 5).Select(index => new Station
+        public StationController(ILogger<StationController> logger, IRepository<Station> repo)
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+            _logger = logger;
+            _repo = repo;
+        }
+
+        [HttpGet(Name = "GetStation")]
+
+        public List<Station> Get()
+        {
+            List<Station> list;
+
+            list = _repo.Get();
+
+            return list;
+
+            //return StatusCode(StatusCodes.Status200OK, list);
+        }
     }
 }
