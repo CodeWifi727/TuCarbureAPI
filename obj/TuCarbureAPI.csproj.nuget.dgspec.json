@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj": {}
+    "c:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj": {
+    "c:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj",
+        "projectUniqueName": "c:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj",
         "projectName": "TuCarbureAPI",
-        "projectPath": "C:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj",
+        "projectPath": "c:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\TuCarbureAPI.csproj",
         "packagesPath": "C:\\Users\\thiba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\obj\\",
+        "outputPath": "c:\\Users\\thiba\\OneDrive\\Bureau\\Licence Valarep\\Projet TuCarbure\\TuCarbureAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -48,6 +48,22 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[7.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.8, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.33, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.6, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
