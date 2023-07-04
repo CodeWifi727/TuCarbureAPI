@@ -10,11 +10,11 @@ public class Carburant
     [Required]
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Column("id-carburant")]
+    [Column("id_carburant")]
     public int idCarburant { get; set; }
     public string? nom { get; set; }
 
-    [Column("code-europeen")]
+    [Column("code_europeen")]
     public string? codeEuropeen { get; set; }
 
 }
