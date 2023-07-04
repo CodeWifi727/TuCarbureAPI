@@ -1,6 +1,6 @@
 namespace TuCarbureAPI;
 
-public class WeatherForecast
+public class Carburant
 {
     public DateOnly Date { get; set; }
 
