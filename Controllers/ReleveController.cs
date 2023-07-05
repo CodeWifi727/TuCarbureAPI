@@ -38,11 +38,25 @@ namespace TuCarbureAPI.Controllers
             //return StatusCode(StatusCodes.Status200OK, list);
         }
 
-        // PUT: api/Releve/UpdatePrice/5
+        // PUT: api/Releve/UpdatePrice/{id}
         [HttpPut("UpdatePrice/{id}")]
         public IActionResult UpdatePrice(int id, [FromBody] float newPrice)
         {
             var updatedReleve = _releveRepository.UpdatePriceAndDate(id, newPrice);
+
+            if (updatedReleve == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updatedReleve);
+        }
+
+                // PUT: api/Releve/LastPrice/{id}
+        [HttpPut("LastPrice/{id}")]
+        public IActionResult LastPrice(int id)
+        {
+            var updatedReleve = _releveRepository.LastPrice(id);
 
             if (updatedReleve == null)
             {

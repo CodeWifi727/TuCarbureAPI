@@ -47,5 +47,24 @@ namespace TuCarbureAPI.RepositoryLayer
 
             return releveToUpdate;
         }
+
+        public List<Releve> LastPrice(int stationId)
+        {
+            // Find the station with the given stationId
+            var releveStation = _context.Stations.Find(stationId);
+
+            if (releveStation == null)
+            {
+                // Return an empty list if the stationId doesn't exist
+                return new List<Releve>();
+            }
+
+            return _context.Releves
+                .Where(r => r.idStation == stationId) // Filter by stationId
+                .Include(r => r.Station)
+                .Include(r => r.Carburant)
+                .OrderByDescending(row => row.DateHeure) // Order by DateHeure in descending order
+                .ToList();
+        }
     }
 }
