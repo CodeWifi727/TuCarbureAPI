@@ -14,8 +14,8 @@ public class Station
     public int idStationsService { get; set; }
     public string? marque { get; set; }
     public string? adressePostale { get; set; }
-    public string? longitude { get; set; }
-    public string? latitude { get; set; }
+    public float? longitude { get; set; }
+    public float? latitude { get; set; }
     public string? ville { get; set; }
 
 }

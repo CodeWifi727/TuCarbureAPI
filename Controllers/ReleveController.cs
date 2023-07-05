@@ -52,11 +52,25 @@ namespace TuCarbureAPI.Controllers
             return Ok(updatedReleve);
         }
 
-                // PUT: api/Releve/LastPrice/{id}
+        // PUT: api/Releve/LastPrice/{id}
         [HttpPut("LastPrice/{id}")]
         public IActionResult LastPrice(int id)
         {
             var updatedReleve = _releveRepository.LastPrice(id);
+
+            if (updatedReleve == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updatedReleve);
+        }
+
+        // PUT: api/Releve/LowerPrice/{longitude}/{latitude}
+        [HttpPut("LowerPrice/{longitude}/{latitude}")]
+        public IActionResult LowerPrice(float longitude, float latitude)
+        {
+            var updatedReleve = _releveRepository.LowerPrice(longitude, latitude);
 
             if (updatedReleve == null)
             {

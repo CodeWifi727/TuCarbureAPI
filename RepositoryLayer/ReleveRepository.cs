@@ -67,5 +67,30 @@ namespace TuCarbureAPI.RepositoryLayer
                 .OrderByDescending(row => row.DateHeure) // Order by DateHeure in descending order
                 .ToList();
         }
+
+        public List<Releve> LowerPrice(float longitude, float latitude)
+        {
+            // Find the stations with the given longitude and latitude
+            var closestStations = _context.Stations
+                .OrderBy(s => Math.Pow((double)(s.longitude - longitude), 2) + Math.Pow((double)(s.latitude - latitude), 2))
+                .Take(5) // Adjust this value to get the number of closest stations you want
+                .ToList();
+
+            if (closestStations.Count == 0)
+            {
+                // Return an empty list if no stations found
+                return new List<Releve>();
+            }
+
+            // Get the stationIds of the closest stations
+            var closestStationIds = closestStations.Select(s => s.idStationsService).ToList();
+
+            return _context.Releves
+                .Where(r => closestStationIds.Contains(r.idStation)) // Filter by closest stationIds
+                .Include(r => r.Station) // Include Station
+                .OrderBy(row => row.PrixCarburant) // Order by PrixCarburant
+                .Include(r => r.Carburant) // Include Carburant
+                .ToList();
+        }
     }
 }
