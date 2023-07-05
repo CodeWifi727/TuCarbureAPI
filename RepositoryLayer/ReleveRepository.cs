@@ -20,7 +20,6 @@ namespace TuCarbureAPI.RepositoryLayer
         {
             return _context.Releves
                 .Include(r => r.Station)
-                .Include(r => r.Carburant)
                 .ToList();
             //.OrderBy(row => row.DateHeure)
 
