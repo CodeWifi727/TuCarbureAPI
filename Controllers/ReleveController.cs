@@ -54,8 +54,8 @@ namespace TuCarbureAPI.Controllers
             return Ok(updatedReleve);
         }
 
-        // PUT: api/Releve/LastPrice/{id}
-        [HttpPut("LastPrice/{id}")]
+        // Get: api/Releve/LastPrice/{id}
+        [HttpGet("LastPrice/{id}")]
         public IActionResult LastPrice(int id)
         {
             var updatedReleve = _releveRepository.LastPrice(id);
@@ -68,8 +68,8 @@ namespace TuCarbureAPI.Controllers
             return Ok(updatedReleve);
         }
 
-        // PUT: api/Releve/LowerPrice/{longitude}/{latitude}
-        [HttpPut("LowerPrice/{longitude}/{latitude}")]
+        // Get: api/Releve/LowerPrice/{longitude}/{latitude}
+        [HttpGet("LowerPrice/{longitude}/{latitude}")]
         public IActionResult LowerPrice(float longitude, float latitude)
         {
             var updatedReleve = _releveRepository.LowerPrice(longitude, latitude);
