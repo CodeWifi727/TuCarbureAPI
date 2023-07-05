@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TuCarbureAPI.EntityLayer;
 using TuCarbureAPI.Interfaces;
+using TuCarbureAPI.RepositoryLayer;
 
 namespace TuCarbureAPI.Controllers
 {
@@ -13,13 +14,15 @@ namespace TuCarbureAPI.Controllers
     public class ReleveController : ControllerBase
     {
         private readonly ILogger<ReleveController> _logger;
+        private readonly ReleveRepository _releveRepository;
 
         private IRepository<Releve> _repo;
 
-        public ReleveController(ILogger<ReleveController> logger, IRepository<Releve> repo)
+        public ReleveController(ILogger<ReleveController> logger, IRepository<Releve> repo, IRepository<Releve> releveRepository)
         {
             _logger = logger;
             _repo = repo;
+            _releveRepository = (ReleveRepository?)releveRepository;
         }
 
         [HttpGet(Name = "GetReleve")]
@@ -33,6 +36,20 @@ namespace TuCarbureAPI.Controllers
             return list;
 
             //return StatusCode(StatusCodes.Status200OK, list);
+        }
+
+        // PUT: api/Releve/UpdatePrice/5
+        [HttpPut("UpdatePrice/{id}")]
+        public IActionResult UpdatePrice(int id, [FromBody] float newPrice)
+        {
+            var updatedReleve = _releveRepository.UpdatePrice(id, newPrice);
+
+            if (updatedReleve == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updatedReleve);
         }
     }
 }

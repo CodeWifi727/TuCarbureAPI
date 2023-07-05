@@ -17,6 +17,6 @@ public class Releve
     public DateTime DateHeure { get; set; }
 
     [Column("prix_carburant")]
-    public int PrixCarburant { get; set; }
+    public float PrixCarburant { get; set; }
 
 }
