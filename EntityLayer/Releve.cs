@@ -17,6 +17,18 @@ public class Releve
     public DateTime DateHeure { get; set; }
 
     [Column("prix_carburant")]
-    public int PrixCarburant { get; set; }
+    public float PrixCarburant { get; set; }
+
+    [Column("fk_carburant")]
+    public int idCarburant { get; set; }
+
+    [ForeignKey("idCarburant")]
+    public Carburant Carburant { get; set; }
+
+    [Column("fk_station_service")]
+    public int idStation { get; set; }
+
+    [ForeignKey("idStation")]
+    public Station Station { get; set; }
 
 }
