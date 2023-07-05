@@ -16,4 +16,4 @@ API de l'application flutter pour le projet [TuCarbure](https://github.com/BeNyE
 
 [Le google docs du projet](https://docs.google.com/document/d/1ftHMD80U4Igl9eWWrk347nL0NZXRLSGl4Bz1fJpMSpQ)
 
-[mes demande a chatGPT](https://chat.openai.com/share/30f7c300-c559-4239-8bd7-8b41c0cf4a48)
+[Mes demande a chatGPT](https://chat.openai.com/share/30f7c300-c559-4239-8bd7-8b41c0cf4a48)
