@@ -52,25 +52,47 @@ namespace TuCarbureAPI.RepositoryLayer
             return releveToUpdate;
         }
 
-        public List<Releve> LastPrice(int stationId)
+public List<Releve> LastPrice(int stationId)
+{
+    // Find the station with the given stationId
+    var releveStation = _context.Stations.Find(stationId);
+
+    if (releveStation == null)
+    {
+        // Return an empty list if the stationId doesn't exist
+        return new List<Releve>();
+    }
+
+    var lastPrices = _context.Carburants
+        .Join(
+            _context.Releves,
+            carburant => carburant.idCarburant,
+            releve => releve.idCarburant,
+            (carburant, releve) => new { Carburant = carburant, Releve = releve }
+        )
+        .Join(
+            _context.Stations,
+            carburantReleve => carburantReleve.Releve.idStation,
+            station => station.idStationsService,
+            (carburantReleve, station) => new { CarburantReleve = carburantReleve, Station = station }
+        )
+        .Where(joinResult => joinResult.Station.idStationsService == stationId)
+        .GroupBy(joinResult => new { joinResult.CarburantReleve.Carburant.nom, joinResult.CarburantReleve.Carburant.codeEuropeen })
+        .Select(groupedResult => new Releve
         {
-            // Find the station with the given stationId
-            var releveStation = _context.Stations.Find(stationId);
-
-            if (releveStation == null)
+            Carburant = new Carburant // Create a new Carburant object here
             {
-                // Return an empty list if the stationId doesn't exist
-                return new List<Releve>();
-            }
+                nom = groupedResult.Key.nom,
+                codeEuropeen = groupedResult.Key.codeEuropeen
+            },
+            PrixCarburant = groupedResult.Min(item => item.CarburantReleve.Releve.PrixCarburant),
+            DateHeure = groupedResult.Max(item => item.CarburantReleve.Releve.DateHeure)
+        })
+        .OrderBy(result => result.PrixCarburant)
+        .ToList();
 
-            return _context.Releves
-                .Where(r => r.idStation == stationId) // Filter by stationId
-                .Include(r => r.Station)
-                .Include(r => r.Carburant)
-                .OrderByDescending(row => row.DateHeure) // Order by DateHeure in descending order
-                .ToList();
-        }
-
+    return lastPrices;
+}
         public List<Releve> LowerPrice(float longitude, float latitude)
         {
             // Find the stations with the given longitude and latitude
