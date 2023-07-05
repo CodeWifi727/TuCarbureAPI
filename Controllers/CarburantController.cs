@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TuCarbureAPI.EntityLayer;
 using TuCarbureAPI.Interfaces;
+using TuCarbureAPI.RepositoryLayer;
 
 namespace TuCarbureAPI.Controllers
 {
@@ -34,5 +35,20 @@ namespace TuCarbureAPI.Controllers
 
             //return StatusCode(StatusCodes.Status200OK, list);
         }
+
+        // PUT: api/Carburant/ByType/{id}
+        [HttpGet("ByType/{id}")]
+        public IActionResult GetCarburantByType(int id)
+        {
+            var carburant = _repo.Get(id); // Récupère le carburant par son ID
+
+            if (carburant == null)
+            {
+                return NotFound(); // Retourne une réponse 404 si aucun carburant correspondant n'est trouvé
+            }
+
+            return Ok(carburant);
+        }
+
     }
 }
