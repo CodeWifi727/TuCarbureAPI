@@ -21,6 +21,9 @@ namespace TuCarbureAPI.RepositoryLayer
             return _context.Releves
                 .Include(r => r.Station)
                 .Include(r => r.Carburant)
+                //afficher seulement un relever par station
+                .GroupBy(r => r.Station)
+                .Select(g => g.First())
                 .ToList();
             //.OrderBy(row => row.DateHeure)
 
