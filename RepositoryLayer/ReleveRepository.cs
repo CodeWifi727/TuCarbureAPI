@@ -30,5 +30,17 @@ namespace TuCarbureAPI.RepositoryLayer
         {
             throw new NotImplementedException();
         }
+
+        public Releve UpdatePrice(int releveId, float newPrice)
+        {
+            var releveToUpdate = _context.Releves.Find(releveId);
+            if (releveToUpdate != null)
+            {
+                releveToUpdate.PrixCarburant = newPrice;
+                _context.SaveChanges();
+            }
+
+            return releveToUpdate;
+        }
     }
 }
