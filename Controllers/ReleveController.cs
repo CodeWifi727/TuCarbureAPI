@@ -42,7 +42,7 @@ namespace TuCarbureAPI.Controllers
         [HttpPut("UpdatePrice/{id}")]
         public IActionResult UpdatePrice(int id, [FromBody] float newPrice)
         {
-            var updatedReleve = _releveRepository.UpdatePrice(id, newPrice);
+            var updatedReleve = _releveRepository.UpdatePriceAndDate(id, newPrice);
 
             if (updatedReleve == null)
             {
