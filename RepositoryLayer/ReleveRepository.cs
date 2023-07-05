@@ -18,7 +18,12 @@ namespace TuCarbureAPI.RepositoryLayer
 
         public List<Releve> Get()
         {
-            return _context.Releves.OrderBy(row => row.DateHeure).ToList();
+            return _context.Releves
+                .Include(r => r.Station)
+                .Include(r => r.Carburant)
+                .ToList();
+            //.OrderBy(row => row.DateHeure)
+
         }
 
         public Releve? Get(int id)
