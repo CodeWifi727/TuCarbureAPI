@@ -38,6 +38,8 @@ namespace TuCarbureAPI.Controllers
             //return StatusCode(StatusCodes.Status200OK, list);
         }
 
+
+
         // PUT: api/Releve/UpdatePrice/{id}
         [HttpPut("UpdatePrice/{id}")]
         public IActionResult UpdatePrice(int id, [FromBody] float newPrice)

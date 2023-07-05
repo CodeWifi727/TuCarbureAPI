@@ -23,7 +23,7 @@ namespace TuCarbureAPI.RepositoryLayer
 
         public Carburant? Get(int id)
         {
-            throw new NotImplementedException();
+            return _context.Carburants.FirstOrDefault(c => c.idCarburant == id);
         }
 
         public Carburant insert(Carburant entity)

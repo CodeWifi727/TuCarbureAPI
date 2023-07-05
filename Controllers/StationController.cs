@@ -31,8 +31,6 @@ namespace TuCarbureAPI.Controllers
             list = _repo.Get();
 
             return list;
-
-            //return StatusCode(StatusCodes.Status200OK, list);
         }
     }
 }
