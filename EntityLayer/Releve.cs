@@ -19,6 +19,7 @@ public class Releve
     [Column("prix_carburant")]
     public float PrixCarburant { get; set; }
 
+
     [Column("fk_carburant")]
     public int idCarburant { get; set; }
 
@@ -30,5 +31,4 @@ public class Releve
 
     [ForeignKey("idStation")]
     public Station Station { get; set; }
-
 }
