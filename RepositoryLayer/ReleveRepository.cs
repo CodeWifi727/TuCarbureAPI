@@ -31,12 +31,13 @@ namespace TuCarbureAPI.RepositoryLayer
             throw new NotImplementedException();
         }
 
-        public Releve UpdatePrice(int releveId, float newPrice)
+        public Releve UpdatePriceAndDate(int releveId, float newPrice)
         {
             var releveToUpdate = _context.Releves.Find(releveId);
             if (releveToUpdate != null)
             {
                 releveToUpdate.PrixCarburant = newPrice;
+                releveToUpdate.DateHeure = DateTime.Now; // Set the current date and time
                 _context.SaveChanges();
             }
 
