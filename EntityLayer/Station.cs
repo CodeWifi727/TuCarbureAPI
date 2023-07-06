@@ -17,5 +17,6 @@ public class Station
     public float? longitude { get; set; }
     public float? latitude { get; set; }
     public string? ville { get; set; }
+    public List<Releve> Releves { get; set; }
 
 }

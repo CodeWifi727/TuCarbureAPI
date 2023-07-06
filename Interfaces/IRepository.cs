@@ -4,7 +4,6 @@
     {
         List<T> Get();
         T? Get(int id);
-
         T insert(T entity);
     }
 }

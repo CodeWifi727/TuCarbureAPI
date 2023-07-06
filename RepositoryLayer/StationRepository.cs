@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using TuCarbureAPI.EntityLayer;
 using TuCarbureAPI.Interfaces;
@@ -16,10 +18,27 @@ namespace TuCarbureAPI.RepositoryLayer
             _context = context;
         }
 
-        public List<Station> Get()
+      /*  public List<Station> Get()
         {
             return _context.Stations.OrderBy(row => row.marque).ToList();
-        }
+        }*/
+        public List<Station> Get()
+        {
+            return _context.Stations
+           .Include(s => s.Releves)
+           .ThenInclude(r => r.Carburant)
+           .Select(s => new Station
+           {
+               idStationsService = s.idStationsService,
+               marque = s.marque,
+               adressePostale = s.adressePostale,
+               longitude = s.longitude,
+               latitude = s.latitude,
+               ville = s.ville,
+               Releves = s.Releves.ToList()
+           })
+           .ToList();
+            }
 
         public Station? Get(int id)
         {
